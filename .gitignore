@@ -1,5 +1,6 @@
-cypress-framework
+node_modules/*
 cypress/videos/*
 cypress/screenshots/*
 cypress/downloads/*
+cypress/reports/*
 .env
