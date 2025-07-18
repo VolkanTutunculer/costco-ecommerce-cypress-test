@@ -6,7 +6,7 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
 
   e2e: {
-    baseUrl: "https://www.trendyol.com.tr/",  
+    baseUrl: "https://magento.softwaretestingboard.com/",  
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
