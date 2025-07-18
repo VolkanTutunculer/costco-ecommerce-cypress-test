@@ -12,10 +12,9 @@ describe("Home Page Validation", () => {
         cy.title().should("include", "Home Page");
 
         cy.log("Home Page Header Check");
-        cy.get("h1 > span[data-ui-id*='page-title']").should(
-            "have.text",
-            "Home Page"
-        );
+        cy.get("h1 > span[data-ui-id*='page-title']")
+            .should("have.text", "Home Page")
+            .and("be.visible");
     });
 
     it("Luma Logo Validation", () => {
@@ -47,4 +46,35 @@ describe("Home Page Validation", () => {
     it("Training Sub Menu Validation", () => {
         validateSubMenu("#ui-id-7", menuItems.training);
     });
+
+    it("Promo Photo Validation", () => {
+        cy.get("div  [class *= 'block-promo'] > img").should("be.visible").and("have.attr", "src");
+    });
+
+    it("Most Seller Header and Trend Sentence Validation", () => {
+        cy.get("div > h2[class='title']").should("have.text", "Hot Sellers").and("be.visible");
+        cy.get("div > p[class='info']").should("have.text", "Here is what`s trending on Luma right now").and("be.visible");
+    })
+
+    it("Most Seller Product Grid Validation", () => {
+        cy.get("div[class *='block-products-list']").should("be.visible");
+        cy.get("div[class*='products-grid grid']").find("li").should("be.visible").and("have.length", "6");
+    });
+
+    it.only("Most Seller Product Name and Price Validation", () => {
+        cy.get("div[class*='product-item-details']").should("not.be.empty").and("be.visible");
+        cy.get("div[class*='product-item-details'] strong a").should("have.attr", "href");
+        cy.get("[class='price']").should("be.visible").each(($el) => {
+            const priceInfo = $el.text();
+
+            expect(priceInfo).to.include("$");
+            expect(priceInfo).to.have.length(6);
+        })
+    })
 });
+
+
+it("Most Seller Product Size, Color and Add to Chart Validation", () => {
+
+});
+
