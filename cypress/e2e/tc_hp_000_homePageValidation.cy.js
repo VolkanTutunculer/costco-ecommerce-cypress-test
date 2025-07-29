@@ -51,17 +51,17 @@ describe("Home Page Validation", () => {
         cy.get("div  [class *= 'block-promo'] > img").should("be.visible").and("have.attr", "src");
     });
 
-    it("Most Seller Header and Trend Sentence Validation", () => {
+    it("Hot Sellers Header and Trend Sentence Validation", () => {
         cy.get("div > h2[class='title']").should("have.text", "Hot Sellers").and("be.visible");
         cy.get("div > p[class='info']").should("have.text", "Here is what`s trending on Luma right now").and("be.visible");
     })
 
-    it("Most Seller Product Grid Validation", () => {
+    it("Hot Sellers Product Grid Validation", () => {
         cy.get("div[class *='block-products-list']").should("be.visible");
         cy.get("div[class*='products-grid grid']").find("li").should("be.visible").and("have.length", "6");
     });
 
-    it.only("Most Seller Product Name and Price Validation", () => {
+    it("Hot Sellers Product Name and Price Validation", () => {
         cy.get("div[class*='product-item-details']").should("not.be.empty").and("be.visible");
         cy.get("div[class*='product-item-details'] strong a").should("have.attr", "href");
         cy.get("[class='price']").should("be.visible").each(($el) => {
@@ -74,7 +74,7 @@ describe("Home Page Validation", () => {
 });
 
 
-it("Most Seller Product Size, Color and Add to Chart Validation", () => {
+it("Hot Sellers Product Size, Color and Add to Chart Validation", () => {
 
 });
 
